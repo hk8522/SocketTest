@@ -6,19 +6,19 @@ write a C++ program to capture all file system events and using an
 asynchronous thread, write the following record to an SSL socket (port
 5055):-
 
-·        Total byte-length of this record
-·        Fixed value: QZW-0001-0009
-·        Date and time of event
-·        Process ID initiating file access
-·        Process name
-·        Parent Process ID
-·        Parent Process name
-·        File system activity (read/write/delete/etc.)
-·        File path and name
-·        File size
-·        Read data length
-·        Write data length
-·        Snapshot of the process memory block(s)
+-        Total byte-length of this record
+-        Fixed value: QZW-0001-0009
+-        Date and time of event
+-        Process ID initiating file access
+-        Process name
+-        Parent Process ID
+-        Parent Process name
+-        File system activity (read/write/delete/etc.)
+-        File path and name
+-        File size
+-        Read data length
+-        Write data length
+-        Snapshot of the process memory block(s)
 
 Fields should be delimited with value 0x00FF00 (3 bytes)
 
