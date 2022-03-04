@@ -32,7 +32,7 @@ int network_init()
 		return 1;
 	}
 	else
-		fprintf(stderr, "The Winsock 2.2 dll was found okay\n");
+		;// fprintf(stderr, "The Winsock 2.2 dll was found okay\n");
 #endif
 
 	return 0;

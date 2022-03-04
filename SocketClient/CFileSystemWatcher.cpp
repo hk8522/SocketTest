@@ -1,8 +1,9 @@
+#include "stdafx.h"
+#include "CFileSystemWatcher.h"
+#include "FindProcessInfo.h"
 #include <iostream>
 #include <thread>
 #include <future> 
-#include "CFileSystemWatcher.h"
-#include "FindProcessInfo.h"
 
 
 void fileWatcherThread(CFileSystemWatcher& watcherObj)

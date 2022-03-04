@@ -143,17 +143,26 @@
   <ItemGroup>
     <ClCompile Include="..\common\network_init.cpp" />
     <ClCompile Include="CFileSystemWatcher.cpp" />
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="CreationEvent.cpp" />
+    <ClCompile Include="EventSink.cpp" />
     <ClCompile Include="FileWatcherListener.cpp" />
     <ClCompile Include="FindProcessInfo.cpp" />
-    <ClCompile Include="SocketClient.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ProcessUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\common\my_protocol.h" />
     <ClInclude Include="..\common\network_init.h" />
     <ClInclude Include="CFileSystemWatcher.h" />
+    <ClInclude Include="Client.h" />
+    <ClInclude Include="CreationEvent.h" />
+    <ClInclude Include="EventSink.h" />
     <ClInclude Include="FileWatcherListener.h" />
     <ClInclude Include="FindProcessInfo.h" />
     <ClInclude Include="IFileWatcherListener.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="ProcessUtil.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

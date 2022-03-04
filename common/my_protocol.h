@@ -28,7 +28,7 @@ typedef struct __PROTOCOL_MESSAGE
 	std::wstring processName;
 	uint32_t parent_process_id;
 	std::wstring parentProcessName;
-	std::wstring fileSystemActivity; // (read/write/delete/etc.)
+	std::wstring activity; // (read/write/delete/etc.)
 	std::wstring filePath;
 	uint32_t fileSize;
 	uint32_t readDataLength;

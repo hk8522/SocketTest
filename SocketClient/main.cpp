@@ -1,16 +1,26 @@
 // FileWatcherTest.cpp : Defines the entry point for the console application.
 //
 
-#include <iostream>
-#include <conio.h>
+#include "stdafx.h"
+#include "network_init.h"
 #include "FileWatcherListener.h"
 #include "CFileSystemWatcher.h"
+#include "EventSink.h"
+#include <iostream>
+#include <conio.h>
 
 using namespace std;
 
 int main()
 {
-	
+	int err = network_init();
+	if (err != 0) {
+		fprintf(stderr, "Network initialization failed.\n");
+		return EXIT_FAILURE;
+	}
+
+	CreationEvent::registerCreationCallback(nullptr);
+
 	/*!
 	 * Creates watcher by passing the watch directory
 	 * 
@@ -25,6 +35,7 @@ int main()
 	
 	//passes the listener to watcher
 	watcher.AddFileChangeListener(listener);
+#if false
 	int choice;
 	do
 	{
@@ -54,10 +65,17 @@ int main()
 		default:
 			cout << "\nInvalid choice";
 		}
-	   } while (choice != 3);
-	
-	   
-	   delete listener;
+	} while (choice != 3);
+#else
+	watcher.Start();
+	cout << "\nPress any key to exit.";
+	cin.get();
+#endif;
+
+	watcher.Stop();
+	delete listener;
+
+	network_cleanup();
 
     return 0;
 }

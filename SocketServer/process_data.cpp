@@ -83,8 +83,8 @@ int process_data(SOCKET sock, sockaddr_in *peer)
 		return EXIT_FAILURE;
 	CHECK_GAP;
 
-	//std::string fileSystemActivity; // (read/write/delete/etc.)
-	if (read_string((char*)buffer, msg.length, offset, msg.fileSystemActivity) != EXIT_SUCCESS)
+	//std::string activity; // (read/write/delete/etc.)
+	if (read_string((char*)buffer, msg.length, offset, msg.activity) != EXIT_SUCCESS)
 		return EXIT_FAILURE;
 	CHECK_GAP;
 
@@ -147,23 +147,28 @@ int write_msg(const char* filename, PROTOCOL_MESSAGE* msg)
 		<< "Process name: " << msg->processName << endl
 		<< "Parent Process ID: " << msg->parent_process_id << endl
 		<< "Parent Process name: " << msg->parentProcessName << endl
-		<< "File system activity: " << msg->fileSystemActivity << endl
+		<< "Activity: " << msg->activity << endl
 		<< "File path and name: " << msg->filePath << endl
 		<< "File size: " << msg->fileSize << endl
 		<< "Read data length: " << msg->readDataLength << endl
-		<< "Write data length: " << msg->writeDataLength << endl
-		<< "Snapshot of the process memory block(s):" << endl;
+		<< "Write data length: " << msg->writeDataLength << endl;
 
-	for (offset = 0; offset < (int)msg->snapshotLength; offset++) {
-		file << std::hex << setw(2) << setfill(L'0') << msg->snapshot[offset];
-		if (offset % 16 == 0)
-			file << endl;
-		else if (offset % 8 == 0)
-			file << "   ";
-		else
-			file << " ";
+	if (msg->snapshotLength > 0) {
+		file << "Snapshot of the process memory block(s):" << endl;
+
+		for (offset = 0; offset < (int)msg->snapshotLength; offset++) {
+			file << std::hex << setw(2) << setfill(L'0') << msg->snapshot[offset];
+			if (offset % 16 == 0)
+				file << endl;
+			else if (offset % 8 == 0)
+				file << "   ";
+			else
+				file << " ";
+		}
+		file << endl;
 	}
 	file << endl;
+
 	file.close();
 
 	return 0;
