@@ -24,6 +24,12 @@
     <ClCompile Include="FindProcessInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FileWatcherListener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="network_init.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CFileSystemWatcher.h">
@@ -33,6 +39,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IFileWatcherListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileWatcherListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="network_init.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="my_protocol.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

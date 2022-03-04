@@ -32,5 +32,8 @@
     <ClInclude Include="SocketServer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="network_init.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

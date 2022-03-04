@@ -3,36 +3,10 @@
 
 #include <iostream>
 #include <conio.h>
-#include "IFileWatcherListener.h"
+#include "FileWatcherListener.h"
 #include "CFileSystemWatcher.h"
 
 using namespace std;
-class FileWatcherListener : public IFileWatcherListener
-{
-	// Inherited via IFileWatcherListener
-	virtual void OnFileChange(const std::wstring & path) override
-	{
-		wcout << L"OnFileChange " << path << endl;
-	}
-
-	// Inherited via IFileWatcherListener
-	virtual void OnFileAdded(const std::wstring & path) override
-	{
-		wcout << L"OnFileAdded " << path << endl;
-	}
-
-	// Inherited via IFileWatcherListener
-	virtual void OnFileRemoved(const std::wstring & path) override
-	{
-		wcout << L"OnFileRemoved " << path << endl;
-	}
-
-	// Inherited via IFileWatcherListener
-	virtual void OnFileRenamed(const std::wstring & path) override
-	{
-		wcout << L"OnFileRenamed " << path << endl;
-	}
-};
 
 int main()
 {

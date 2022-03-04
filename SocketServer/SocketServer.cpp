@@ -10,6 +10,7 @@ int main(int argc, char const* argv[])
 	int opt = 1;
 	int addrlen = sizeof(address);
 	int err;
+	char addrbuff[64];
 
 	err = network_init();
 	if (err != 0) {
@@ -51,15 +52,21 @@ int main(int argc, char const* argv[])
 		network_cleanup();
 		return EXIT_FAILURE;
 	}
-	if ((new_socket = accept(server_fd, (struct sockaddr*)&peer,
-		(socklen_t*)&addrlen)) < 0)
-	{
-		perror("accept");
-		network_cleanup();
-		return EXIT_FAILURE;
-	}
 
-	process_data(new_socket, &peer);
+	printf("Server is listening to the port %d\n", PORT_NO);
+
+	for (;;) {
+		if ((new_socket = accept(server_fd, (struct sockaddr*)&peer,
+			(socklen_t*)&addrlen)) < 0)
+		{
+			perror("accept");
+			network_cleanup();
+			return EXIT_FAILURE;
+		}
+
+		printf("A connection accepted from %s.\n", inet_ntop(peer.sin_family, &peer.sin_addr, addrbuff, sizeof(addrbuff)));
+		process_data(new_socket, &peer);
+	}
 
 	closesocket(new_socket);
 	closesocket(server_fd);

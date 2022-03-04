@@ -46,7 +46,7 @@ void fileWatcherThread(CFileSystemWatcher& watcherObj)
 		wcsncpy_s(filename, ARRAYSIZE(filename), pNotify->FileName, pNotify->FileNameLength / 2);
 		
 		filename[pNotify->FileNameLength / 2] = NULL;
-		FindProcessInfo(filename);
+		//FindProcessInfo(filename);
 			
 		switch (Buffer[0].Action)
 		{
