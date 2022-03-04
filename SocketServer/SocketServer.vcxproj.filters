@@ -18,21 +18,21 @@
     <ClCompile Include="SocketServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="network_init.cpp">
+    <ClCompile Include="process_data.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="process_data.cpp">
+    <ClCompile Include="..\common\network_init.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="my_protocol.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SocketServer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="network_init.h">
+    <ClInclude Include="..\common\my_protocol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\network_init.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

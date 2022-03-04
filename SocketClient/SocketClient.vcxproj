@@ -78,9 +78,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)common;</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)common;</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -139,19 +141,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\common\network_init.cpp" />
     <ClCompile Include="CFileSystemWatcher.cpp" />
     <ClCompile Include="FileWatcherListener.cpp" />
     <ClCompile Include="FindProcessInfo.cpp" />
-    <ClCompile Include="network_init.cpp" />
     <ClCompile Include="SocketClient.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\common\my_protocol.h" />
+    <ClInclude Include="..\common\network_init.h" />
     <ClInclude Include="CFileSystemWatcher.h" />
     <ClInclude Include="FileWatcherListener.h" />
     <ClInclude Include="FindProcessInfo.h" />
     <ClInclude Include="IFileWatcherListener.h" />
-    <ClInclude Include="my_protocol.h" />
-    <ClInclude Include="network_init.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
